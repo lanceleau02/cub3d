@@ -1,10 +1,9 @@
-NO ./textures/tibo.png
-SO ./textures/salsa.png
-WE ./textures/bash.png
-EA ./textures/stack.png
+NO ./textures/yo.png
+SO ./textures/zhabri.png
+WE ./textures/chad.png
+EA ./textures/feature.png
 F 0,255,0
-C 255,0,0
-
+C 0,100,255
 
 
 
@@ -29,6 +28,6 @@ C 255,0,0
 11000000110101011100000010001
 10000000000000001100000010001                   
 10000000000000001101010010001
-11000001110101011111011110S0111
+11000001110101011111011110N0111
 11110111 1110101 101111010001
 11111111 1111111 111111111111

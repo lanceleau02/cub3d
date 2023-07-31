@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   p_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:53:35 by laprieur          #+#    #+#             */
-/*   Updated: 2023/07/27 09:31:26 by laprieur         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:30:33 by hsebille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,20 @@ int	got_colors(t_colors *colors)
 	if (colors->c_ceiling == NULL)
 		return (0);
 	return (1);
+}
+
+void	skip_blank(char **map, int *start)
+{
+	int	j;
+
+	j = 0;
+	while (map[*start])
+	{
+		j = 0;
+		while (map[*start][j] == ' ' || map[*start][j] == '\t')
+			j++;
+		if (ft_strlen(map[*start]) > 0 && map[*start][j] != '\0')
+			break ;
+		*start += 1;
+	}
 }

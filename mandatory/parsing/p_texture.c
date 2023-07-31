@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   p_texture.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 16:58:19 by hsebille          #+#    #+#             */
-/*   Updated: 2023/07/27 16:46:22 by laprieur         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:13:39 by hsebille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ int	get_all_map(t_program *data)
 		|| got_colors(&data->colors) == 0))
 	{
 		j = 0;
-		
 		while (data->map[i][j] == ' ' || data->map[i][j] == '\t')
 			j++;
 		if (define_textures_colors(data, i, j) == 1)

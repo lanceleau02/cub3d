@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   p_map.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:39:24 by hsebille          #+#    #+#             */
-/*   Updated: 2023/07/27 17:01:19 by laprieur         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:30:29 by hsebille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ static	int	parse_map_content(char **map, int i)
 	int	p_check;
 
 	p_check = 0;
-	
 	while (map[i])
 	{
 		j = 0;
@@ -103,15 +102,7 @@ char	**get_map_content(char **map, int start)
 	char	**content;
 	int		j;
 
-	while (map[start])
-	{
-		j = 0;
-		while (map[start][j] == ' ' || map[start][j] == '\t')
-			j++;
-		if (ft_strlen(map[start]) > 0 && map[start][j] != '\0')
-			break ;
-		start++;
-	}
+	skip_blank(map, &start);
 	if (parse_map_content(map, start))
 	{
 		return (NULL);

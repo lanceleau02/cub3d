@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_textures.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 16:34:38 by laprieur          #+#    #+#             */
-/*   Updated: 2023/07/26 14:59:06 by laprieur         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:24:55 by hsebille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	draw_textures(t_program *data, t_rays *ray)
 	float		tex_pos;
 
 	step = 1.0 * data->images.n_wall->height / data->images.line_height;
-	tex_pos = (data->images.draw_start - 1080 / 2 \
+	tex_pos = (data->images.draw_start - (1080 / 2) \
 		+ data->images.line_height / 2) * step;
 	ray->y = data->images.draw_start;
 	while (ray->y < data->images.draw_end)

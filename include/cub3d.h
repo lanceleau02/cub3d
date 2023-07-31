@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:59:40 by hsebille          #+#    #+#             */
-/*   Updated: 2023/07/27 15:55:20 by laprieur         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:42:53 by hsebille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,8 @@ int		spacechr(char *str);
 char	**get_map(int fd);
 char	**get_map_content(char **map, int i);
 void	error(int type, char *arg);
+void	middle_free(t_program *data);
+void	skip_blank(char **map, int *start);
 
 /* ************************************************************************** */
 /*                                 RENDERING                                  */

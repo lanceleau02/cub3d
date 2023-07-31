@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:07:29 by laprieur          #+#    #+#             */
-/*   Updated: 2023/07/27 15:44:25 by laprieur         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:42:33 by hsebille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ int	main(int argc, char **argv)
 		return (1);
 	if (init_images(&data) == 1)
 	{
-		ft_putstr_fd("cub3d: Invalid textures.\n", 2);
+		error(TEXTURES, NULL);
+		middle_free(&data);
 		return (1);
 	}
 	mlx_loop_hook(data.mlx, key_hook, &data);
 	mlx_image_to_window(data.mlx, data.images.main_img, 0, 0);
 	mlx_loop(data.mlx);
 	mlx_terminate(data.mlx);
+	return (0);
 }

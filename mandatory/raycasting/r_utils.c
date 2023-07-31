@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   r_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 14:19:38 by laprieur          #+#    #+#             */
-/*   Updated: 2023/07/25 14:05:14 by laprieur         ###   ########.fr       */
+/*   Updated: 2023/07/31 16:54:47 by hsebille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,25 @@
 
 void	ray_init(t_rays *ray, t_program *data)
 {
-		ray->dir_x = data->player.dir_x + data->screen.plane_x \
-			* data->screen.cam_x;
-		ray->dir_y = data->player.dir_y + data->screen.plane_y \
-			* data->screen.cam_x;
-		ray->deltadist_x = sqrt(1 + (ray->dir_y * ray->dir_y) \
-			/ (ray->dir_x * ray->dir_x));
-		ray->deltadist_y = sqrt(1 + (ray->dir_x * ray->dir_x) \
-			/ (ray->dir_y * ray->dir_y));
-		ray->ray_x = data->player.px;
-		ray->ray_y = data->player.py;
-		ray->wall_x = 0.0;
-		ray->tex_x = 0;
-		ray->tex_y = 0;
-		ray->y = 0;
+	ray->dir_x = data->player.dir_x + data->screen.plane_x \
+		* data->screen.cam_x;
+	ray->dir_y = data->player.dir_y + data->screen.plane_y \
+		* data->screen.cam_x;
+	ray->deltadist_x = sqrt(1 + (ray->dir_y * ray->dir_y) \
+		/ (ray->dir_x * ray->dir_x));
+	ray->deltadist_y = sqrt(1 + (ray->dir_x * ray->dir_x) \
+		/ (ray->dir_y * ray->dir_y));
+	if (ray->dir_x == 0 || ray->dir_y == 0)
+	{
+		ray->deltadist_x = 1e45;
+		ray->deltadist_y = 1e45;
+	}
+	ray->ray_x = data->player.px;
+	ray->ray_y = data->player.py;
+	ray->wall_x = 0.0;
+	ray->tex_x = 0;
+	ray->tex_y = 0;
+	ray->y = 0;
 }
 
 void	set_sidedist(t_rays *ray, t_program *data)

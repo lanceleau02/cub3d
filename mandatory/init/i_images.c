@@ -3,14 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   i_images.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:46:37 by laprieur          #+#    #+#             */
-/*   Updated: 2023/07/26 13:25:33 by laprieur         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:38:48 by hsebille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static int	resize_img(t_program *data)
+{
+	bool	checker;
+
+	checker = mlx_resize_image(data->images.n_wall, 1024, 1024);
+	if (checker == false)
+		return (1);
+	checker = mlx_resize_image(data->images.s_wall, 1024, 1024);
+	if (checker == false)
+		return (1);
+	checker = mlx_resize_image(data->images.e_wall, 1024, 1024);
+	if (checker == false)
+		return (1);
+	checker = mlx_resize_image(data->images.w_wall, 1024, 1024);
+	if (checker == false)
+		return (1);
+	return (0);
+}
 
 int	init_images(t_program *data)
 {
@@ -27,9 +46,7 @@ int	init_images(t_program *data)
 	data->images.w_wall = mlx_new_image(data->mlx, 1920, 1080);
 	data->images.w_wall = mlx_texture_to_image(data->mlx, \
 		data->textures.west_t);
-	mlx_resize_image(data->images.n_wall, 1024, 1024);
-	mlx_resize_image(data->images.s_wall, 1024, 1024);
-	mlx_resize_image(data->images.e_wall, 1024, 1024);
-	mlx_resize_image(data->images.w_wall, 1024, 1024);
+	if (resize_img(data) == 1)
+		return (1);
 	return (0);
 }
