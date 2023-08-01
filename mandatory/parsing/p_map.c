@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   p_map.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:39:24 by hsebille          #+#    #+#             */
-/*   Updated: 2023/07/31 17:30:29 by hsebille         ###   ########.fr       */
+/*   Updated: 2023/08/01 15:04:56 by laprieur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ char	**get_map(int fd)
 
 	line = get_next_line(fd);
 	if (line == NULL)
+	{
+		error(MAP, NULL);
 		return (NULL);
+	}
 	tmp = get_next_line(fd);
 	while (tmp != NULL)
 	{
@@ -53,15 +56,17 @@ static int	map_surrounded(char **map, char *str, int y, int x)
 {
 	while (str[x])
 	{
-		if (str[x] == '0')
+		if (ft_ischarset("0NSWE", str[x]) == 1)
 		{
-			if (ft_ischarset("10NSWE", map[y + 1][x]) == 0)
+			if (!map[y + 1] || x > (int)ft_strlen(map[y + 1]) \
+				|| ft_ischarset("10NSWE", map[y + 1][x]) == 0)
 				return (1);
-			if (ft_ischarset("10NSWE", map[y - 1][x]) == 0)
+			if (!map[y - 1] || x > (int)ft_strlen(map[y - 1]) \
+				|| ft_ischarset("10NSWE", map[y - 1][x]) == 0)
 				return (1);
-			if (ft_ischarset("10NSWE", map[y][x + 1]) == 0)
+			if (!map[y][x + 1] || ft_ischarset("10NSWE", map[y][x + 1]) == 0)
 				return (1);
-			if (ft_ischarset("10NSWE", map[y][x - 1]) == 0)
+			if (!map[y][x - 1] || ft_ischarset("10NSWE", map[y][x - 1]) == 0)
 				return (1);
 		}
 		x++;

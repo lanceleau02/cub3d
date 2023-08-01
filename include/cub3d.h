@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:59:40 by hsebille          #+#    #+#             */
-/*   Updated: 2023/07/31 17:42:53 by hsebille         ###   ########.fr       */
+/*   Updated: 2023/08/01 15:24:59 by laprieur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@
 # include "MLX42/MLX42_Int.h"
 # include "MLX42/MLX42.h"
 
-# define WIN_W 1920
-# define WIN_H 1080
-# define FOV 1
-
 typedef enum e_errors
 {
 	MLX,
@@ -31,7 +27,6 @@ typedef enum e_errors
 	EXTENSION,
 	DIRECTORY,
 	BAD_FILE,
-	TEXTURES,
 	COLORS,
 	MAP,
 }	t_errors;
@@ -128,6 +123,7 @@ typedef struct s_program
 /* ************************************************************************** */
 
 int		find_player(t_program *data);
+void	exit_program(t_program *data);
 void	key_hook(void *param);
 
 /* ************************************************************************** */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_textures.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 16:34:38 by laprieur          #+#    #+#             */
-/*   Updated: 2023/07/31 17:24:55 by hsebille         ###   ########.fr       */
+/*   Updated: 2023/08/01 15:19:35 by laprieur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ static void	draw_textures(t_program *data, t_rays *ray)
 			get_color(data->images.n_wall, ray->tex_y, ray->tex_x));
 		else if (ray->hit_side == 0 && ray->step_x < 0)
 			mlx_put_pixel(data->images.main_img, data->images.x, ray->y, \
-			get_color(data->images.w_wall, ray->tex_y, ray->tex_x));
+			get_color(data->images.e_wall, ray->tex_y, ray->tex_x));
 		else if (ray->hit_side == 0 && ray->step_x > 0)
 			mlx_put_pixel(data->images.main_img, data->images.x, ray->y, \
-			get_color(data->images.e_wall, ray->tex_y, ray->tex_x));
+			get_color(data->images.w_wall, ray->tex_y, ray->tex_x));
 		ray->y++;
 	}
 }

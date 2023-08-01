@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   r_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsebille <hsebille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 14:19:38 by laprieur          #+#    #+#             */
-/*   Updated: 2023/07/31 16:54:47 by hsebille         ###   ########.fr       */
+/*   Updated: 2023/08/01 14:07:05 by laprieur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ray_init(t_rays *ray, t_program *data)
 		/ (ray->dir_x * ray->dir_x));
 	ray->deltadist_y = sqrt(1 + (ray->dir_x * ray->dir_x) \
 		/ (ray->dir_y * ray->dir_y));
-	if (ray->dir_x == 0 || ray->dir_y == 0)
+	if ((ray->dir_x == 0 || ray->dir_y == 0) && (data->screen.plane_x != 0))
 	{
 		ray->deltadist_x = 1e45;
 		ray->deltadist_y = 1e45;

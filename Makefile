@@ -6,7 +6,7 @@
 #    By: laprieur <laprieur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/29 17:38:49 by hsebille          #+#    #+#              #
-#    Updated: 2023/07/27 15:15:01 by laprieur         ###   ########.fr        #
+#    Updated: 2023/08/01 13:33:15 by laprieur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,15 +61,15 @@ MAKEFLAGS		+= --silent --no-print-directory
 #                                   RECIPES                                    #
 # **************************************************************************** #
 
-all: header $(NAME)
+all: header $(LIBFT) $(NAME) 
 
-$(NAME): $(LIBFT) $(MINILIBX) $(M_OBJS)
+$(NAME): $(M_OBJS) | $(MINILIBX)
 	$(CC) $(CFLAGS) $(MINILIBX) $(M_OBJS) $(LDFLAGS) -o $(NAME)
 	@printf "%b" "$(BLUE)CREATED $(CYAN)$(NAME)\n"
 
 $(LIBFT):
 	$(MAKE) -C $(dir $@)
-	
+
 $(MINILIBX):
 	cd minilibx && cmake -B build
 	make -C $(dir $@)
@@ -122,5 +122,5 @@ header:
 #                                   SPECIAL                                    #
 # **************************************************************************** #
 
-.PHONY: all clean fclean re $(LIBFT) $(MINILIBX)
+.PHONY: all clean fclean re $(LIBFT)
 .DELETE_ON_ERROR:
