@@ -1,6 +1,6 @@
 <div align="center">
 
-![](https://raw.githubusercontent.com/ayogun/42-project-badges/refs/heads/main/badges/philosopherse.png)
+![](https://raw.githubusercontent.com/ayogun/42-project-badges/refs/heads/main/badges/cub3de.png)
 
 # **cub3d**
 
